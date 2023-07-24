@@ -28,7 +28,7 @@ func LZNT1Compress(source []byte) ([]byte, error) {
 }
 
 func LZNT1Decompress(source []byte) ([]byte, error) {
-	return nil, fmt.Errorf("not implemented")
+	return lznt1.Decompress(source)
 }
 
 func XPressDecompress(source []byte) ([]byte, error) {

@@ -1,4 +1,5 @@
 //go:build windows
+// +build windows
 
 package rtl
 
@@ -204,12 +205,12 @@ func LZNT1Compress(source []byte) ([]byte, error) {
 	return RtlCompress(COMPRESSION_FORMAT_LZNT1, source)
 }
 
-func XPressCompress(source []byte) ([]byte, error) {
-	return RtlCompress(COMPRESSION_FORMAT_XPRESS, source)
-}
-
 func LZNT1Decompress(source []byte) ([]byte, error) {
 	return RtlDecompressWithDefaultBufferSize(COMPRESSION_FORMAT_LZNT1, source)
+}
+
+func XPressCompress(source []byte) ([]byte, error) {
+	return RtlCompress(COMPRESSION_FORMAT_XPRESS, source)
 }
 
 func XPressDecompress(source []byte) ([]byte, error) {

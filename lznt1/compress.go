@@ -208,7 +208,3 @@ func NewCompressor(input []byte) *Compressor {
 func Min(a, b int) int {
 	return int(math.Min(float64(a), float64(b)))
 }
-
-func Compress(input []byte) ([]byte, error) {
-	return NewCompressor(input).Compress()
-}

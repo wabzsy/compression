@@ -76,7 +76,7 @@ func main() {
 		// XPRESS Compress (golang)
 		result, err = compression.XPressCompress(source)
 	case 9:
-		// XPRESS Cecompress (golang)
+		// XPRESS Decompress (golang)
 		result, err = compression.XPressDecompress(source)
 	case 10:
 		// RtlCompressBuffer (COMPRESSION_FORMAT_XPRESS | COMPRESSION_ENGINE_MAXIMUM)

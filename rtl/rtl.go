@@ -1,11 +1,12 @@
 //go:build !windows
+// +build !windows
 
 package rtl
 
 import "fmt"
 
 var (
-	ERR_BAD_OS = fmt.Errorf("the 'compression/rtl' package is not supported on this operating system")
+	ERR_BAD_OS = fmt.Errorf("the 'rtl' package is not supported on this operating system")
 )
 
 func LZNT1Compress(source []byte) ([]byte, error) {

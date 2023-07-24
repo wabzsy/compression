@@ -8,7 +8,7 @@ import (
 
 func TestCompress(t *testing.T) {
 
-	source, err := os.ReadFile("../WindowsCodecsRaw.dll")
+	source, err := os.ReadFile("../testdata/WindowsCodecsRaw.dll")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -28,5 +28,4 @@ func TestCompress(t *testing.T) {
 	if err = os.WriteFile("go_compressed_lznt1.bin", result, 0666); err != nil {
 		t.Fatal(err)
 	}
-
 }

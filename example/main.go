@@ -20,12 +20,12 @@ func main() {
   3: aPLib Decompress with strict mode (golang)
   4: LZNT1 Compress (golang)
   5: LZNT1 Decompress (golang)
-  6: RtlCompressBuffer (COMPRESSION_FORMAT_LZNT1 | COMPRESSION_ENGINE_MAXIMUM)
-  7: RtlDecompressBuffer (COMPRESSION_FORMAT_LZNT1)
+  6: RtlCompressBuffer (COMPRESSION_FORMAT_LZNT1 | COMPRESSION_ENGINE_MAXIMUM) -- Windows only
+  7: RtlDecompressBuffer (COMPRESSION_FORMAT_LZNT1) -- Windows only
   8: XPRESS Compress (golang)
   9: XPRESS Decompress (golang)
-  10: RtlCompressBuffer (COMPRESSION_FORMAT_XPRESS | COMPRESSION_ENGINE_MAXIMUM)
-  11: RtlDecompressBuffer (COMPRESSION_FORMAT_XPRESS)
+  10: RtlCompressBuffer (COMPRESSION_FORMAT_XPRESS | COMPRESSION_ENGINE_MAXIMUM) -- Windows only
+  11: RtlDecompressBuffer (COMPRESSION_FORMAT_XPRESS) -- Windows only
 `)
 	flag.Parse()
 

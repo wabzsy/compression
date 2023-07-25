@@ -9,3 +9,7 @@ func Compress(input []byte) ([]byte, error) {
 	// https://github.com/coderforlife/ms-compress/issues/3
 	return CompressWithLevel(input, Level7)
 }
+
+func Decompress(source []byte) ([]byte, error) {
+	return NewDecompressor(source).Decompress()
+}

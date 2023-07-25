@@ -2,22 +2,22 @@
 
 [English](README.md) | [中文](README_zh.md)
 
-`Compression`是一个纯Go实现的压缩（解压缩）库，主要用于支持一些非主流的压缩格式（如：aPLib、LZNT1、XPRESS），可以作为模块使用或用作独立的CLI工具。
+`Compression` is a compression (decompression) library implemented in pure Go. It is mainly used to support some non-mainstream compression formats (such as: aPLib, LZNT1, XPRESS). It can be used as a module or as a stand-alone CLI tool.
 
-## 目录结构
+## Directory Structure
 
-| 目录名      | 描述                                                 |
-|----------|----------------------------------------------------|
-| aplib    | 处理aPLib格式的数据，支持aPLib header                        |
-| lznt1    | 处理RtlCompressBuffer的COMPRESSION_FORMAT_LZNT1格式的数据  |
-| xpress   | 处理RtlCompressBuffer的COMPRESSION_FORMAT_XPRESS格式的数据 |
-| rtl      | 使用syscall调用ntdll.dll中的压缩(解压)功能，**仅在Windows平台上支持**  |
-| example  | 简单的CLI工具，使用方法见下文                                   |
-| testdata | 空（运行测试用例的目录）                                       |
+| Directory | Description                                                  |
+| --------- | ------------------------------------------------------------ |
+| aplib     | Process data in aPLib format, support aPLib header           |
+| lznt1     | Process data in COMPRESSION_FORMAT_LZNT1 format of RtlCompressBuffer |
+| xpress    | Process data in COMPRESSION_FORMAT_XPRESS format of RtlCompressBuffer |
+| rtl       | Use syscall to call the compression (decompression) function in ntdll.dll, **only supported on Windows platform** |
+| example   | A simple CLI tool, see below for usage                       |
+| testdata  | Empty                                                        |
 
-## 使用方法
+## Usage
 
-### 作为模块使用：
+### Use as module
 
 ```bash
 go get -v -u github.com/wabzsy/compression
@@ -100,9 +100,9 @@ func example() {
 
 ```
 
-### 作为CLI工具使用：
+### Use as a CLI tool
 
-- 下载并编译
+- clone the source code and compile:
 
 ```bash
 git clone https://github.com/wabzsy/compression
@@ -112,7 +112,7 @@ cd compression/example
 go build -v -o cli
 ```
 
-- 查看使用方法
+- show `cli` usage:
 
 ```bash
 ./cli -h
@@ -140,7 +140,7 @@ Usage of ./cli:
         output file
 ```
 
-- 示例
+- example of input/output:
 
 ```bash
 # XPRESS Compress 

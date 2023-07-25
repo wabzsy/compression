@@ -1,7 +1,6 @@
 package lznt1
 
 import (
-	"bytes"
 	"encoding/binary"
 	"math"
 )
@@ -20,13 +19,13 @@ func NewEntry() *Entry {
 	}
 }
 
-type Directory struct {
+type Dictionary struct {
 	Entries map[uint16]*Entry
 	Cursor  int
 	Sizes   []int16
 }
 
-func (d *Directory) LoadEntry(idx uint16) *Entry {
+func (d *Dictionary) LoadEntry(idx uint16) *Entry {
 	// TODO: 考虑未来是否会出现并发map的情况
 	if d.Entries[idx] == nil {
 		d.Entries[idx] = NewEntry()
@@ -34,7 +33,7 @@ func (d *Directory) LoadEntry(idx uint16) *Entry {
 	return d.Entries[idx]
 }
 
-func (d *Directory) Fill(input []byte, cursor int, length int) {
+func (d *Dictionary) Fill(input []byte, cursor int, length int) {
 	d.Entries = make(map[uint16]*Entry)
 	d.Sizes = make([]int16, 0x100*0x100)
 	d.Cursor = cursor
@@ -47,7 +46,7 @@ func (d *Directory) Fill(input []byte, cursor int, length int) {
 	}
 }
 
-func (d *Directory) Find(input []byte, cursor int, maxLen int) (offset, length int) {
+func (d *Dictionary) Find(input []byte, cursor int, maxLen int) (offset, length int) {
 	if maxLen < 3 || cursor <= d.Cursor {
 		return 0, 0
 	}
@@ -81,25 +80,23 @@ func (d *Directory) Find(input []byte, cursor int, maxLen int) (offset, length i
 	return 0, 0
 }
 
-func NewDirectory() *Directory {
-	return &Directory{
+func NewDictionary() *Dictionary {
+	return &Dictionary{
 		Entries: make(map[uint16]*Entry),
 		Sizes:   make([]int16, 0x100*0x100),
 	}
 }
 
 type Compressor struct {
-	dir            *Directory
+	dict           *Dictionary
 	__input        []byte
 	__inputCursor  int
 	__output       []byte
 	__outputCursor int
-	buffer         *bytes.Buffer
 }
 
 func (c *Compressor) compressChunk(chunkLength int) int {
-	// 初始化Directory
-	c.dir.Fill(c.__input, c.__inputCursor, chunkLength)
+	c.dict.Fill(c.__input, c.__inputCursor, chunkLength)
 
 	out := c.__output[c.__outputCursor+2:]
 
@@ -125,7 +122,7 @@ func (c *Compressor) compressChunk(chunkLength int) int {
 				shift--
 			}
 
-			offset, length := c.dir.Find(c.__input, c.__inputCursor+inPos, Min(rem, mask3))
+			offset, length := c.dict.Find(c.__input, c.__inputCursor+inPos, Min(rem, mask3))
 
 			if length > 0 {
 				// Write symbol that is a combination of offset and length
@@ -199,9 +196,8 @@ func (c *Compressor) Compress() ([]byte, error) {
 
 func NewCompressor(input []byte) *Compressor {
 	return &Compressor{
-		dir:     NewDirectory(),
+		dict:    NewDictionary(),
 		__input: input,
-		buffer:  &bytes.Buffer{},
 	}
 }
 

@@ -5,6 +5,7 @@ import (
 	"github.com/wabzsy/compression/aplib"
 	"github.com/wabzsy/compression/lznt1"
 	"github.com/wabzsy/compression/rtl"
+	"github.com/wabzsy/compression/xpress"
 )
 
 func APLibCompress(source []byte) ([]byte, error) {
@@ -31,11 +32,11 @@ func LZNT1Decompress(source []byte) ([]byte, error) {
 	return lznt1.Decompress(source)
 }
 
-func XPressDecompress(source []byte) ([]byte, error) {
-	return nil, fmt.Errorf("not implemented")
+func XPressCompress(source []byte) ([]byte, error) {
+	return xpress.Compress(source)
 }
 
-func XPressCompress(source []byte) ([]byte, error) {
+func XPressDecompress(source []byte) ([]byte, error) {
 	return nil, fmt.Errorf("not implemented")
 }
 

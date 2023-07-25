@@ -1,1 +1,8 @@
 https://github.com/coderforlife/ms-compress/tree/master/src
+
+
+https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-xca/72da4f8d-2ba3-437d-b772-2e4173713a0b
+
+https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-xca/34cb9ab9-5ce6-42d7-a518-107c1c7c65e7
+
+https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-xca/656222f0-ad84-47ab-97b2-83f4468a20b2

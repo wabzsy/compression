@@ -1,15 +1,9 @@
+https://github.com/coderforlife/ms-compress/blob/master/src/lznt1_compress.cpp  -- C++
 
-https://github.com/li-xilin/lznt1    -- C  压缩率和RTL一致, 速度比RTL快,分析源代码后认为这个应该是兼容性最好的     (better)
+https://github.com/li-xilin/lznt1    -- C  算法同C++
 
-
-https://github.com/you0708/lznt1  -- python  两种情况: 查找一次时压缩率劣于RTL且速度比RTL慢, 查找两次时压缩率略优于RTL但速度极慢
+https://github.com/you0708/lznt1  -- python  慢
 
 https://github.com/killeven/lznt1 -- golang  同上(python)版
 
-
-https://github.com/coderforlife/ms-compress/blob/master/src/lznt1_compress.cpp  -- C++ 算法同C
-
-
 https://github.com/CERT-Polska/malduck/blob/master/malduck/compression/components/lznt1.py   (decompress only)
-
-当前已用Go实现C版的算法,压缩率与RTL一致,速度优于RTL

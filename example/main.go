@@ -15,9 +15,9 @@ func main() {
 	flag.StringVar(&input, "i", "", "input file")
 	flag.StringVar(&output, "o", "", "output file")
 	flag.IntVar(&mode, "m", 0, `mode:
-  1: aPlib Compress without header (golang)
-  2: aPlib Compress with header (golang)
-  3: aPlib Decompress with strict mode (golang)
+  1: aPLib Compress without header (golang)
+  2: aPLib Compress with header (golang)
+  3: aPLib Decompress with strict mode (golang)
   4: LZNT1 Compress (golang)
   5: LZNT1 Decompress (golang)
   6: RtlCompressBuffer (COMPRESSION_FORMAT_LZNT1 | COMPRESSION_ENGINE_MAXIMUM)
@@ -52,13 +52,13 @@ func main() {
 
 	switch mode {
 	case 1:
-		// aPlib Compress without header (golang)
+		// aPLib Compress without header (golang)
 		result, err = compression.APLibCompress(source)
 	case 2:
-		// aPlib Compress with header (golang)
+		// aPLib Compress with header (golang)
 		result, err = compression.APLibSafeCompress(source)
 	case 3:
-		// aPlib Decompress with strict mode (golang)
+		// aPLib Decompress with strict mode (golang)
 		result, err = compression.APLibStrictDecompress(source)
 	case 4:
 		// LZNT1 Compress (golang)

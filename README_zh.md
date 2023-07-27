@@ -2,7 +2,7 @@
 
 [English](README.md) | [中文](README_zh.md)
 
-`Compression`是一个纯Go实现的压缩（解压缩）库，主要用于支持一些非主流的压缩格式（如：aPLib、LZNT1、XPRESS），可以作为模块使用或用作独立的CLI工具。
+`Compression`是一个纯Go实现的压缩（解压缩）库，主要用于支持一些非主流的压缩格式（如：aPLib、LZNT1、Xpress），可以作为模块使用或用作独立的CLI工具。
 
 ## 目录结构
 
@@ -61,13 +61,13 @@ func example() {
 		panic(err)
 	}
 
-	// XPRESS Compress (golang)
+	// Xpress Compress (golang)
 	result, err = compression.XPressCompress(input)
 	if err != nil {
 		panic(err)
 	}
 
-	// XPRESS Decompress (golang)
+	// Xpress Decompress (golang)
 	result, err = compression.XPressDecompress(input)
 	if err != nil {
 		panic(err)
@@ -131,8 +131,8 @@ Usage of ./cli:
           5: LZNT1 Decompress (golang)
           6: RtlCompressBuffer (COMPRESSION_FORMAT_LZNT1 | COMPRESSION_ENGINE_MAXIMUM)
           7: RtlDecompressBuffer (COMPRESSION_FORMAT_LZNT1)
-          8: XPRESS Compress (golang)
-          9: XPRESS Decompress (golang)
+          8: Xpress Compress (golang)
+          9: Xpress Decompress (golang)
           10: RtlCompressBuffer (COMPRESSION_FORMAT_XPRESS | COMPRESSION_ENGINE_MAXIMUM)
           11: RtlDecompressBuffer (COMPRESSION_FORMAT_XPRESS)
         
@@ -143,7 +143,7 @@ Usage of ./cli:
 - 示例
 
 ```bash
-# XPRESS Compress 
+# Xpress Compress 
 ./cli -i ../testdata/test.exe -o ../testdata/test.bin -m 8
 ```
 
@@ -156,7 +156,7 @@ Usage of ./cli:
 ```
 
 ```bash
-# XPRESS Decompress 
+# Xpress Decompress 
 ./cli -i ../testdata/test.bin -o ../testdata/test.dec -m 9
 ```
 

@@ -22,8 +22,8 @@ func main() {
   5: LZNT1 Decompress (golang)
   6: RtlCompressBuffer (COMPRESSION_FORMAT_LZNT1 | COMPRESSION_ENGINE_MAXIMUM) -- Windows only
   7: RtlDecompressBuffer (COMPRESSION_FORMAT_LZNT1) -- Windows only
-  8: XPRESS Compress (golang)
-  9: XPRESS Decompress (golang)
+  8: Xpress Compress (golang)
+  9: Xpress Decompress (golang)
   10: RtlCompressBuffer (COMPRESSION_FORMAT_XPRESS | COMPRESSION_ENGINE_MAXIMUM) -- Windows only
   11: RtlDecompressBuffer (COMPRESSION_FORMAT_XPRESS) -- Windows only
 `)
@@ -73,10 +73,10 @@ func main() {
 		// RtlDecompressBuffer (COMPRESSION_FORMAT_LZNT1)
 		result, err = compression.RtlLZNT1Decompress(source)
 	case 8:
-		// XPRESS Compress (golang)
+		// Xpress Compress (golang)
 		result, err = compression.XPressCompress(source)
 	case 9:
-		// XPRESS Decompress (golang)
+		// Xpress Decompress (golang)
 		result, err = compression.XPressDecompress(source)
 	case 10:
 		// RtlCompressBuffer (COMPRESSION_FORMAT_XPRESS | COMPRESSION_ENGINE_MAXIMUM)

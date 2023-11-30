@@ -25,7 +25,7 @@ var (
 	Level5 = Level{NiceLength: 128, MaxChain: 32}
 	Level6 = Level{NiceLength: 256, MaxChain: 64}
 	Level7 = Level{NiceLength: 512, MaxChain: 128}
-	Level8 = Level{NiceLength: 1<<32 - 1, MaxChain: 1<<32 - 1}
+	Level8 = Level{NiceLength: math.MaxInt, MaxChain: math.MaxInt}
 )
 
 type Dictionary struct {

@@ -3,6 +3,7 @@ package lznt1
 import (
 	"bytes"
 	"encoding/binary"
+	"errors"
 	"fmt"
 )
 
@@ -48,6 +49,10 @@ func (d *Decompressor) DecompressChunk(chunkLength int) ([]byte, error) {
 				length := (sym & mask) + 3
 				offset := (sym >> shift) + 1
 				index := decompressed.Len() - int(offset)
+
+				if index < 0 {
+					return nil, errors.New("invalid chunk")
+				}
 
 				if length >= offset {
 					decompressed.Write(bytes.Repeat(decompressed.Bytes()[index:], 0xFFF/len(decompressed.Bytes()[index:])+1)[:length])
